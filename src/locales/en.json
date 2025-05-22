@@ -106,8 +106,8 @@
       "vehicles": "Vehicles",
       "drivers": "Drivers",
       "backup": "Backup",
-      "exportData": "Export Data"
-      "export" : "Export"
+      "exportData": "Export Data",
+      "export": "Export"
     },
     "projects": {
       "title": "Projects",
@@ -218,8 +218,27 @@
       "paid": "Paid Payments",
       "backupLinks": "Backup Links"
     },
-    "common"{
-      "logout":"Logout"
+    "common": {
+      "logout": "Logout"
+    },
+    "paymentRequest": {
+      "title": "Payment Request",
+      "images": "Images",
+      "date": "Date",
+      "uploadImage": "Upload Image",
+      "remarks": "Remarks",
+      "amount": "Amount",
+      "remarksPlaceholder": "Enter remarks",
+      "removePurpose": "Remove Purpose",
+      "addPurpose": "Add Purpose",
+      "totalAmount": "Total Amount",
+      "submit": "Submit",
+      "food": "Food",
+      "fuel": "Fuel",
+      "labour": "Labour",
+      "vehicle": "Vehicle",
+      "water": "Water",
+      "other": "Other"
     },
     "admin": {
       "title": "Admin Dashboard",
