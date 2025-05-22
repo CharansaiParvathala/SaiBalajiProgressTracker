@@ -222,6 +222,10 @@
       "logout": "Logout"
     },
     "paymentRequest": {
+      "project" : "Project",
+      "selectProject" : "Select Project",
+      "purposes" : "Payment Purpose",
+      "type" : "Type",
       "title": "Payment Request",
       "images": "Images",
       "date": "Date",
