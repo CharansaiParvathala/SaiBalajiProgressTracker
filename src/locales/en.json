@@ -107,6 +107,7 @@
       "drivers": "Drivers",
       "backup": "Backup",
       "exportData": "Export Data"
+      "export" : "Export"
     },
     "projects": {
       "title": "Projects",
@@ -216,6 +217,9 @@
       "scheduled": "Scheduled Payments",
       "paid": "Paid Payments",
       "backupLinks": "Backup Links"
+    },
+    "common"{
+      "logout":"Logout"
     },
     "admin": {
       "title": "Admin Dashboard",
