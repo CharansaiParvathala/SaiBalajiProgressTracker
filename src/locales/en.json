@@ -222,6 +222,7 @@
       "logout": "Logout"
     },
     "paymentRequest": {
+      "pickDate" : "Pick a Date",
       "project" : "Project",
       "selectProject" : "Select Project",
       "purposes" : "Payment Purpose",
