@@ -9,7 +9,6 @@ import { Label } from "@/components/ui/label";
 import { useAuth } from '@/context/auth-context';
 import { useLanguage } from '@/context/language-context';
 import { toast } from '@/components/ui/sonner';
-import { AuthLogo } from '@/components/auth/AuthLogo';
 import { Eye, EyeOff, LogIn } from 'lucide-react';
 
 export default function Login() {
@@ -61,21 +60,27 @@ export default function Login() {
   return (
     <div className="flex items-center justify-center min-h-screen p-4 bg-gradient-to-br from-primary/10 to-secondary/5 dark:from-primary/5 dark:to-background">
       <Card className="w-full max-w-md border-2 border-primary/10 dark:border-primary/20 shadow-lg">
-        <CardHeader className="space-y-4">
-          <div className="flex justify-center">
-            <div className="w-20 h-20 overflow-hidden rounded-full border-2 border-primary flex items-center justify-center bg-white dark:bg-background">
-              <img
-                src="/lovable-uploads/a723c9c5-8174-41c6-b9d7-2d8646801ec6.png"
-                alt="Sai Balaji Construction"
-                className="w-full h-full object-contain"
-                onError={(e) => {
-                  e.currentTarget.onerror = null;
-                  e.currentTarget.src = "/lovable-uploads/dec9f020-a443-46b8-9996-45dedd958103.png";
-                }}
-              />
-            </div>
+        <CardHeader className="space-y-2 flex flex-col items-center">
+          <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-primary flex items-center justify-center bg-white dark:bg-background">
+            <img
+              src="/lovable-uploads/a723c9c5-8174-41c6-b9d7-2d8646801ec6.png"
+              alt="Sai Balaji Construction"
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = "/lovable-uploads/dec9f020-a443-46b8-9996-45dedd958103.png";
+              }}
+            />
           </div>
-          <CardTitle className="text-2xl text-center">{t("app.auth.login")}</CardTitle>
+
+          <span className="font-bold text-lg text-center mt-2 text-primary dark:text-primary-light">
+            Sai Balaji Construction
+          </span>
+
+          <CardTitle className="text-2xl text-center mt-1">
+            {t("app.auth.login")}
+          </CardTitle>
+
           <CardDescription className="text-center">
             {t("app.auth.enterCredentials")}
           </CardDescription>
