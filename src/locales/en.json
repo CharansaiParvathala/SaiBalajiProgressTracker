@@ -1,4 +1,3 @@
-
 {
   "common": {
     "loading": "Loading...",
@@ -72,6 +71,25 @@
       "orContinueWith": "Or continue with"
     },
     "sidebar": {
+      "dashboard": "Dashboard",
+      "projects": "Projects",
+      "createProject": "Create Project",
+      "addProgress": "Add Progress",
+      "viewProgress": "View Progress",
+      "requestPayment": "Request Payment",
+      "viewPayment": "View Payments",
+      "reviewSubmissions": "Review Submissions",
+      "reviewHistory": "Review History",
+      "paymentQueue": "Payment Queue",
+      "statistics": "Statistics",
+      "backupLinks": "Backup Links",
+      "credentials": "Credentials",
+      "vehicles": "Vehicles",
+      "drivers": "Drivers",
+      "backup": "Backup",
+      "exportData": "Export Data"
+    },
+    "navigation": {
       "dashboard": "Dashboard",
       "projects": "Projects",
       "createProject": "Create Project",
