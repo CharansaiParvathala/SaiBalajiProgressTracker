@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -22,14 +24,14 @@ export default function Login() {
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
-    
+
     if (!email || !password) {
       toast.error(t("app.auth.allFieldsRequired"));
       return;
     }
 
     setLoading(true);
-    
+
     try {
       await login(email, password);
       toast.success(t("app.auth.loginSuccess"));
@@ -61,8 +63,16 @@ export default function Login() {
       <Card className="w-full max-w-md border-2 border-primary/10 dark:border-primary/20 shadow-lg">
         <CardHeader className="space-y-4">
           <div className="flex justify-center">
-            <div className="w-20 h-20 overflow-hidden rounded-full border-2 border-primary flex items-center justify-center">
-              <AuthLogo className="w-full h-full object-cover" alt="Sai Balaji Construction" />
+            <div className="w-20 h-20 overflow-hidden rounded-full border-2 border-primary flex items-center justify-center bg-white dark:bg-background">
+              <img
+                src="/lovable-uploads/a723c9c5-8174-41c6-b9d7-2d8646801ec6.png"
+                alt="Sai Balaji Construction"
+                className="w-full h-full object-contain"
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = "/lovable-uploads/dec9f020-a443-46b8-9996-45dedd958103.png";
+                }}
+              />
             </div>
           </div>
           <CardTitle className="text-2xl text-center">{t("app.auth.login")}</CardTitle>
@@ -75,10 +85,10 @@ export default function Login() {
           <CardContent className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">{t("app.auth.email")}</Label>
-              <Input 
-                id="email" 
-                type="email" 
-                placeholder={t("app.auth.emailPlaceholder")} 
+              <Input
+                id="email"
+                type="email"
+                placeholder={t("app.auth.emailPlaceholder")}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -94,17 +104,17 @@ export default function Login() {
                 </Link>
               </div>
               <div className="relative">
-                <Input 
-                  id="password" 
-                  type={showPassword ? "text" : "password"} 
-                  placeholder={t("app.auth.passwordPlaceholder")} 
+                <Input
+                  id="password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder={t("app.auth.passwordPlaceholder")}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
                   className="bg-background dark:bg-background border-2 pr-10"
                 />
-                <button 
-                  type="button" 
+                <button
+                  type="button"
                   className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
                   onClick={() => setShowPassword(!showPassword)}
                 >
@@ -133,9 +143,9 @@ export default function Login() {
               </div>
             </div>
 
-            <Button 
-              type="button" 
-              variant="outline" 
+            <Button
+              type="button"
+              variant="outline"
               className="w-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 border-2"
               onClick={handleGoogleLogin}
               disabled={loading}
