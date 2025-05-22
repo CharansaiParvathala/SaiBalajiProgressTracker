@@ -114,7 +114,6 @@ export default function Signup() {
             {[
               { id: "name", type: "text", label: "fullName", placeholder: "fullNamePlaceholder" },
               { id: "email", type: "email", label: "email", placeholder: "emailPlaceholder" },
-              { id: "phone", type: "tel", label: "phone", placeholder: "phonePlaceholder" },
             ].map(field => (
               <div className="space-y-2" key={field.id}>
                 <Label htmlFor={field.id}>{t(`app.auth.${field.label}`)}</Label>
