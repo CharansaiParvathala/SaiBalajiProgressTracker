@@ -69,7 +69,23 @@
       "phone": "Phone Number",
       "phonePlaceholder": "Enter your phone number",
       "orContinueWith": "Or continue with"
-    },
+    },  
+    "reports": {
+    "exportData": "Export Data",
+    "exportDescription": "Export reports in different formats",
+    "exportWord": "Export as Word",
+    "exportWordDescription": "Download reports in Word format",
+    "exportWordDetails": "Detailed Word export of all reports",
+    "printReports": "Print Reports",
+    "printDescription": "Print the selected reports",
+    "printDetails": "Detailed printable version of reports",
+    "exportPDF": "Export as PDF",
+    "exportPDFDescription": "Download reports in PDF format",
+    "exportPDFDetails": "Detailed PDF export of all reports",
+    "exportType": "Select Export Type",
+    "wordToPDF": "Convert Word to PDF",
+    "print": "Print"
+  },
     "sidebar": {
       "dashboard": "Dashboard",
       "projects": "Projects",
