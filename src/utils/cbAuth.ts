@@ -2,10 +2,15 @@
 import bcrypt from 'bcryptjs';
 
 const CB_QUERY_URL = "https://cb.drr3tmw3bgdgggid.cloud.couchbase.com:18093/query/service";
-const CB_AUTH = btoa(`${process.env.REACT_APP_CB_USER}:${process.env.REACT_APP_CB_PASS}`);
+// *** INLINE YOUR COUCHBASE USER & PASS HERE ***
+const CB_USER = "saibalaji";
+const CB_PASS = "Parvathala@97046";
+const CB_AUTH = btoa(`${CB_USER}:${CB_PASS}`);
 
-// run a N1QL statement via HTTP
-async function runQuery(statement: string, args?: Record<string, any>) {
+async function runQuery(
+  statement: string,
+  args?: Record<string, any>
+): Promise<any[]> {
   const body = new URLSearchParams({ statement });
   if (args) body.append("args", JSON.stringify(args));
 
@@ -32,7 +37,7 @@ export async function cbSignup(
 ) {
   const key = `user::${email}`;
 
-  // Check if user exists
+  // check for existing user
   try {
     await runQuery(
       `SELECT META().id FROM \`travel-sample\` USE KEYS [$key]`,
@@ -43,7 +48,7 @@ export async function cbSignup(
     if (!/not found/i.test(err.message)) throw err;
   }
 
-  // Hash password
+  // hash & insert
   const passwordHash = bcrypt.hashSync(password, 10);
   const userDoc = {
     type: "user",
@@ -53,8 +58,6 @@ export async function cbSignup(
     passwordHash,
     createdAt: new Date().toISOString(),
   };
-
-  // Insert user document
   await runQuery(
     `INSERT INTO \`travel-sample\` (KEY, VALUE) VALUES ($key, $doc)`,
     { key, doc: userDoc }
@@ -66,7 +69,7 @@ export async function cbLogin(
   password: string
 ): Promise<{ name: string; email: string }> {
   const key = `user::${email}`;
-  const rows: any[] = await runQuery(
+  const rows = await runQuery(
     `SELECT name, passwordHash FROM \`travel-sample\` USE KEYS [$key]`,
     { key }
   );
@@ -76,6 +79,5 @@ export async function cbLogin(
   if (!bcrypt.compareSync(password, passwordHash)) {
     throw new Error("Invalid credentials");
   }
-
   return { name, email };
 }
