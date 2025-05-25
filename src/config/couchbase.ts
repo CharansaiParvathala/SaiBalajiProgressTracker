@@ -5,7 +5,7 @@ import bcrypt from 'bcryptjs';
 const COUCHBASE_CONFIG = {
   connectionString: 'couchbases://cb.drr3tmw3bgdgggid.cloud.couchbase.com',
   username: 'saibalaji',
-  password: 'YourActualSecurePasswordHere',
+  password: 'Parvathala@97046',
   bucketName: 'users'
 };
 
