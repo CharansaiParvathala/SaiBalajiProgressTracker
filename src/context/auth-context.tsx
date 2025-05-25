@@ -12,6 +12,28 @@ interface AuthContextType {
   role: UserRole | null;
 }
 
+useEffect(() => {
+  const loadUser = async () => {
+    try {
+      const response = await fetch('/api/me', {
+        method: 'GET',
+        credentials: 'include',
+      });
+      if (!response.ok) {
+        console.log('No valid session found');
+        setUser(null);
+        return;
+      }
+      const userData: User = await response.json();
+      setUser(userData);
+    } catch (error) {
+      console.error('Failed to load user:', error);
+      setUser(null);
+    }
+  };
+  loadUser();
+}, []);
+
 const AuthContext = createContext<AuthContextType>({
   user: null,
   login: async () => {},
